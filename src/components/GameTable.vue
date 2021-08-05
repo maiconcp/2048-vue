@@ -16,11 +16,6 @@
       <h2>Score:</h2>
       <h1>{{points}}</h1>
     </div>
-    <a href="#" title="Left" v-on:click.prevent="moveLeft()">Left&nbsp;</a>
-    <a href="#" title="Right" v-on:click.prevent="moveRight()">Right&nbsp;</a>
-    <a href="#" title="Up" v-on:click.prevent="moveUp()">Up&nbsp;</a>
-    <a href="#" title="Down" v-on:click.prevent="moveDown()">Down&nbsp;</a>
-        
   </div>
 </template>
 
