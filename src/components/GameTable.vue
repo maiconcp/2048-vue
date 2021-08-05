@@ -9,7 +9,7 @@
     v-touch:swipe.top="moveUp"
     v-touch:swipe.bottom="moveDown"
     >
-    <div class="row"  v-for="(itemRow, row) in cells"> 
+    <div class="row" v-for="(itemRow, row) in cells"> 
       <game-cell :value="cells[row][col]" v-for="(itemCol, col) in itemRow" :newCell="isLastCreated(row,col)" :mergedCell="isMerged(row,col)" ></game-cell>
     </div> 
     <div class="row score text-center"> 
@@ -211,7 +211,7 @@ export default {
   border-width: 5px;
   border-style: solid;
   border-radius: 10px;
-  line-height: 150px;
+  line-height: 20vh;
   background-color: #7a6e6a;
 }
 .score {
@@ -221,7 +221,6 @@ export default {
   border-style: solid;
   border-radius: 10px;
   background-color: #c8b9b2; 
-  line-height: 150px;
   color: #7a6e6a;
 }
 </style>
