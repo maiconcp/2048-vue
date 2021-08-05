@@ -3,7 +3,12 @@
     @keyup.left="moveLeft"
     @keyup.right="moveRight"
     @keyup.up="moveUp"
-    @keyup.down="moveDown">
+    @keyup.down="moveDown"
+    v-touch:swipe.left="moveLeft"
+    v-touch:swipe.right="moveRight"
+    v-touch:swipe.top="moveUp"
+    v-touch:swipe.bottom="moveDown"
+    >
     <div class="row"  v-for="(itemRow, row) in cells"> 
       <game-cell :value="cells[row][col]" v-for="(itemCol, col) in itemRow" :newCell="isLastCreated(row,col)" :mergedCell="isMerged(row,col)" ></game-cell>
     </div> 
