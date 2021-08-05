@@ -220,8 +220,8 @@ export default {
   border-width: 5px;
   border-style: solid;
   border-radius: 10px;
-  background-color: #837872; 
+  background-color: #c8b9b2; 
   line-height: 150px;
-  color: #ddd6c4;
+  color: #7a6e6a;
 }
 </style>

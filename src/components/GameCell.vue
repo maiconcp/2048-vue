@@ -1,5 +1,5 @@
 <template>
-  <div class="cell col-xs-3 col-md-3 mol-lg-3 d-table-cell align-middle text-center v-center padding-zero" >
+  <div class="cell col-xs-3 col-md-3 mol-lg-3 d-table-cell align-middle text-center padding-zero" >
     <div style="height:100%;width:100%;padding:0px;margin:0px;border-radius: 10px;" v-bind:style="{backgroundColor: getBackgoundColor()}" :class="getCellClass()" v-bind:style="{color: getColor()}">
       {{getValue()}}    
     </div>
@@ -31,7 +31,7 @@ export default {
       if (this.value === 1024) return "#c8d56c";      
       if (this.value === 2048) return "#65c559";      
             
-      return "#d2c8be";
+      return "#c8b9b2";
     },
     getColor(){
       return this.LightenDarkenColor(this.getBackgoundColor(), -100);
@@ -78,12 +78,6 @@ export default {
 </script>
 
 <style>
-.v-center{
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
-
 @keyframes new-animation {
   from { 
     transform: scale(0.5);    
