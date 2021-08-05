@@ -1,13 +1,17 @@
 <template>
   <div class="container-fluid h-100 table-background">
-     <div class="row"  v-for="(itemRow, row) in cells"> 
+    <div class="row"  v-for="(itemRow, row) in cells"> 
       <game-cell :value="cells[row][col]" v-for="(itemCol, col) in itemRow" :newCell="isLastCreated(row,col)" :mergedCell="isMerged(row,col)" ></game-cell>
     </div> 
+    <div class="row score text-center"> 
+      <h2>Score:</h2>
+      <h1>{{points}}</h1>
+    </div>
     <a href="#" title="Left" v-on:click.prevent="moveLeft()">Left&nbsp;</a>
     <a href="#" title="Right" v-on:click.prevent="moveRight()">Right&nbsp;</a>
     <a href="#" title="Up" v-on:click.prevent="moveUp()">Up&nbsp;</a>
     <a href="#" title="Down" v-on:click.prevent="moveDown()">Down&nbsp;</a>
-        <span>{{points}}</span>
+        
   </div>
 </template>
 
@@ -141,7 +145,7 @@ export default {
       return {row, col};
     },
     randomValue(){
-      return this.getRandomInt(1, 2) * 2;
+      return this.getRandomInt(1, 3) * 2;
     },
     getRandomInt(min, max) {
       min = Math.ceil(min);
@@ -194,6 +198,23 @@ export default {
 
 <style>
 .table-background{
-    background-color: rgb(210, 200, 190);
+    background-color: #7a6e6a;
+}
+.cell {
+  height: 20vh;
+  font-size: 45px;
+  border-color: #7a6e6a;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  line-height: 150px;
+  background-color: #7a6e6a;
+}
+.score {
+  height: 20vh;
+  border-color: #7a6e6a;
+  border-width: 5px;
+  border-style: solid;
+  line-height: 150px;
 }
 </style>

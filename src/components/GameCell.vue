@@ -1,6 +1,8 @@
 <template>
-  <div class="cell col-xs-3 col-md-3 mol-lg-3 d-table-cell align-middle text-center v-center" v-bind:style="{backgroundColor: getBackgoundColor()}" :class="getCellClass()" v-bind:style="{color: getColor()}">
-    {{getValue()}}    
+  <div class="cell col-xs-3 col-md-3 mol-lg-3 d-table-cell align-middle text-center v-center padding-zero" >
+    <div style="height:100%;width:100%;padding:0px;margin:0px;border-radius: 10px;" v-bind:style="{backgroundColor: getBackgoundColor()}" :class="getCellClass()" v-bind:style="{color: getColor()}">
+      {{getValue()}}    
+    </div>
   </div>
 </template>
 
@@ -57,15 +59,6 @@ export default {
 </script>
 
 <style>
-.cell {
-  height: 25vh;
-  font-size: 45px;
-  border-color: #beb1ab;
-  border-width: 5px;
-  border-style: solid;
-  line-height: 150px;
-}
-
 .v-center{
     display: inline-block;
     vertical-align: middle;
@@ -96,6 +89,10 @@ export default {
 
 .cell-merged {
   animation: merged-animation 0.2s ease-in-out;
+}
+
+.padding-zero{
+  padding: 0px !important;
 }
 
 </style>
