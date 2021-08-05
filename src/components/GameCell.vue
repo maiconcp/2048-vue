@@ -19,25 +19,22 @@ export default {
       return this.value == 0;
     },
     getBackgoundColor(){
-      if (this.value === 2) return "#f2e9e0";
-      if (this.value === 4) return "#efe2cf";
-      if (this.value === 8) return "#fda872";      
-      if (this.value === 16) return "#fda872";      
-      if (this.value === 32) return "#f77c5e";      
-      if (this.value === 64) return "#ed623c";      
-      if (this.value === 128) return "#f0c556";      
-      if (this.value === 256) return "#edcd5e";      
+      if (this.value === 2) return "#ddd6c4";
+      if (this.value === 4) return "#e0d59d";
+      if (this.value === 8) return "#e8c082";      
+      if (this.value === 16) return "#eca378";   
+      if (this.value === 32) return "#ee8c7f";      
+      if (this.value === 64) return "#94caec";      
+      if (this.value === 128) return "#f28be7";
+      if (this.value === 256) return "#96d56c";      
       if (this.value === 512) return "#f0c556";      
-      if (this.value === 1024) return "#fda872";      
-      if (this.value === 2048) return "#fda872";      
+      if (this.value === 1024) return "#c8d56c";      
+      if (this.value === 2048) return "#65c559";      
             
       return "#d2c8be";
     },
     getColor(){
-      if (this.value === 2) return "#807466";
-      if (this.value === 4) return "#807466";
-
-      return "#fff4ed";
+      return this.LightenDarkenColor(this.getBackgoundColor(), -100);
     },
     getValue(){
       if (this.isEmpty()) return " ";
@@ -51,9 +48,31 @@ export default {
       }
       return "";
     },
-    onMerged(){
-      console.log("On-Merged");
-    }
+    LightenDarkenColor(col, amt) {      
+        var usePound = false;      
+        if (col[0] == "#") {
+            col = col.slice(1);
+            usePound = true;
+        }
+    
+        var num = parseInt(col,16);    
+        var r = (num >> 16) + amt;    
+
+        if (r > 255) r = 255;
+        else if  (r < 0) r = 0;
+    
+        var b = ((num >> 8) & 0x00FF) + amt;
+    
+        if (b > 255) b = 255;
+        else if  (b < 0) b = 0;
+    
+        var g = (num & 0x0000FF) + amt;
+    
+        if (g > 255) g = 255;
+        else if (g < 0) g = 0;
+    
+        return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);      
+    }    
   }
 }
 </script>

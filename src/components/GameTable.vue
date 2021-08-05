@@ -1,5 +1,9 @@
 <template>
-  <div class="container-fluid h-100 table-background">
+  <div class="container-fluid h-100 table-background" tabindex="0"
+    @keyup.left="moveLeft"
+    @keyup.right="moveRight"
+    @keyup.up="moveUp"
+    @keyup.down="moveDown">
     <div class="row"  v-for="(itemRow, row) in cells"> 
       <game-cell :value="cells[row][col]" v-for="(itemCol, col) in itemRow" :newCell="isLastCreated(row,col)" :mergedCell="isMerged(row,col)" ></game-cell>
     </div> 
@@ -215,6 +219,9 @@ export default {
   border-color: #7a6e6a;
   border-width: 5px;
   border-style: solid;
+  border-radius: 10px;
+  background-color: #837872; 
   line-height: 150px;
+  color: #ddd6c4;
 }
 </style>
